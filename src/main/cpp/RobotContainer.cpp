@@ -33,8 +33,8 @@ RobotContainer::RobotContainer() {
     double x = -controller.GetRightX();
     
     // Stick drift my beloved
-    if(fabs(x) < 0.11) x = 0.0;
-    if(fabs(y) < 0.11) y = 0.0;
+    if(fabs(x) < 0.1) x = 0.0;
+    if(fabs(y) < 0.1) y = 0.0;
     
     drive.ArcadeDrive(y, x);
   }, {&drive}));
