@@ -12,22 +12,27 @@
 RobotContainer::RobotContainer() {
   // Initialize all of your commands and subsystems here
 
+  //When button on D-pad left strafe robot left
   controller.POV(270).OnTrue(frc2::cmd::RunOnce([this]() {
     drive.StrafeLeft();
   }, {}));
-
+  
+  //When button on D-pad left not pressed then stop
   controller.POV(270).OnFalse(frc2::cmd::RunOnce([this]() {
     drive.StopStrafing();
   }, {}));
 
+  //When button on D-pad right strafe robot right
   controller.POV(90).OnTrue(frc2::cmd::RunOnce([this]() {
     drive.StrafeRight();
   }, {}));
 
+  //When button D-pad right not pressed then stop
   controller.POV(90).OnFalse(frc2::cmd::RunOnce([this]() {
     drive.StopStrafing();
   }, {}));
 
+  //Get joystick position
   drive.SetDefaultCommand(frc2::cmd::Run([this]() {
     double y = controller.GetLeftY();
     double x = -controller.GetRightX();

@@ -35,11 +35,13 @@
  * they are needed.
  */
 
+//Field port
 namespace GlobalConstants {
     // Miscellaneous robot-wide constants
     constexpr int kArbitrary = 0; // Example constant
 }
 
+//Auton constants
 namespace AutoConstants {
     // Maximum speed and acceleration for autonomous
     constexpr auto kMaxSpeed = 4.5_mps; // 4.5 meters per second
@@ -58,6 +60,7 @@ namespace AutoConstants {
     constexpr frc::Pose2d kDefaultStartingPose{{1.39_m, 4.11_m}, {180_deg}};
 }
 
+//User constants
 namespace OIConstants {
     // Joystick/controller ports
     constexpr int kDriverControllerPort = 0; // Port for the driver's controller

@@ -28,10 +28,12 @@ class RobotContainer {
   //frc2::CommandPtr GetAutonomousCommand();
 
  private:
+ //X-Box controller
   // Replace with CommandPS4Controller or CommandJoystick if needed
   frc2::CommandXboxController controller{
       OIConstants::kDriverControllerPort};
 
+  //Robot drive 
   DriveSubsystem drive{};
 
   // The robot's subsystems are defined here...

@@ -30,6 +30,7 @@ using namespace ctre::phoenix::motorcontrol;
 
  private:
 
+//Giving motor name
  ctre::phoenix::motorcontrol::can::WPI_VictorSPX rearLeft; 
  ctre::phoenix::motorcontrol::can::WPI_VictorSPX frontLeft; 
  ctre::phoenix::motorcontrol::can::WPI_VictorSPX rearRight; 

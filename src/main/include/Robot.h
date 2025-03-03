@@ -1,4 +1,3 @@
-//Nothing
 
 #pragma once
 

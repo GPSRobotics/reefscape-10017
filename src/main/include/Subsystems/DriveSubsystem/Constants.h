@@ -14,8 +14,9 @@
 #include <numbers>
 #include <frc/geometry/Pose2d.h>
 
+//Driving constants
 namespace DriveConstants {
-    //Wheel motors
+    //Wheel motors ports
     constexpr int kRearLeftMotorPort = 0;
     constexpr int kFrontLeftMotorPort = 1;
     constexpr int kRearRightMotorPort = 2;
