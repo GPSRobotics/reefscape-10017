@@ -14,8 +14,9 @@
 #include <numbers>
 #include <frc/geometry/Pose2d.h>
 
-namespace CascadeConstants {
-    constexpr int 
+namespace TelescopeConstants {
+    constexpr int kLeftIntakeMotorPort = 6;
+    constexpr int kLeftIntakeMotorPort = 7;
 
 
 }

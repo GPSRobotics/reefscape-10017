@@ -52,8 +52,8 @@
 
 //Stop strafing
 void DriveSubsystem::StopStrafing() {
-    m_leftSidewaysMotor.StopMotor(); 
-    m_rightSidewaysMotor.StopMotor();
+    m_leftSidewaysMotor.Set(0.0); 
+    m_rightSidewaysMotor.Set(0.0);
 }
 
 //Stop driving motors

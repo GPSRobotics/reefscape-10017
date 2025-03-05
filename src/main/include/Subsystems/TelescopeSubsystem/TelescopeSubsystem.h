@@ -9,4 +9,12 @@
 #include "Constants.h"
 
 using namespace frc;
+class TelescopeSubsystem : public frc2::SubsystemBase{
+    public: TelescopeSubsystem();
 
+    void Periodic() override;
+
+    void Spin(double speed);
+
+    void Stop();
+};
