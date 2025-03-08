@@ -34,6 +34,6 @@
  ctre::phoenix::motorcontrol::can::WPI_VictorSPX rearRight; 
  ctre::phoenix::motorcontrol::can::WPI_VictorSPX frontRight; 
 
- frc::PWMSparkMax m_SidewaysMotor{DriveConstants::kSidewaysMotorPort}; 
+ frc::PWMSparkMax sidewaysMotor{DriveConstants::kSidewaysMotorPort}; 
 
  };

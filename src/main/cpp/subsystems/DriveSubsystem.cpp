@@ -7,7 +7,7 @@
  frontLeft{DriveConstants::kFrontLeftMotorPort}, 
  rearRight{DriveConstants::kRearRightMotorPort}, 
  frontRight{DriveConstants::kFrontRightMotorPort},
- sidewaysMotor{DriveConstants::kLeftSidewaysMotorPort}
+ sidewaysMotor{DriveConstants::kSidewaysMotorPort}
 
  { // Initialize motor settings (e.g., inversion) 
 
