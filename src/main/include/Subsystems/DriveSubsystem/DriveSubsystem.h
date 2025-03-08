@@ -28,10 +28,12 @@
 
  private:
 
-//Giving motor name
+//Giving motor names
  ctre::phoenix::motorcontrol::can::WPI_VictorSPX rearLeft; 
  ctre::phoenix::motorcontrol::can::WPI_VictorSPX frontLeft; 
  ctre::phoenix::motorcontrol::can::WPI_VictorSPX rearRight; 
- ctre::phoenix::motorcontrol::can::WPI_VictorSPX frontRight;
- frc::PWMSparkMax sidewaysMotor;
+ ctre::phoenix::motorcontrol::can::WPI_VictorSPX frontRight; 
+
+ frc::PWMSparkMax m_SidewaysMotor{DriveConstants::kSidewaysMotorPort}; 
+
  };

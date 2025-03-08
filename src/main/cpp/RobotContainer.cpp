@@ -12,6 +12,24 @@
 RobotContainer::RobotContainer() {
   // Initialize all of your commands and subsystems here
 
+  //Get joystick position
+  drive.SetDefaultCommand(frc2::cmd::Run([this]() {
+    double y = controller.GetLeftY();
+    double x = -controller.GetRightX();
+    
+    // Stick drift my beloved
+    if(fabs(x) < 0.1) x = 0.0;
+    if(fabs(y) < 0.1) y = 0.0;
+    
+    drive.ArcadeDrive(y, x);
+  }, {&drive}));
+
+  // Configure the button bindings
+  ConfigureBindings();
+}
+
+void RobotContainer::ConfigureBindings() {
+  // Configure your trigger bindings here
   //When button on D-pad left strafe robot left
   controller.POV(270).OnTrue(frc2::cmd::RunOnce([this]() {
     drive.StrafeLeft();
@@ -32,36 +50,21 @@ RobotContainer::RobotContainer() {
     drive.StopStrafing();
   }, {}));
 
-  //Get joystick position
-  drive.SetDefaultCommand(frc2::cmd::Run([this]() {
-    double y = controller.GetLeftY();
-    double x = -controller.GetRightX();
-    
-    // Stick drift my beloved
-    if(fabs(x) < 0.1) x = 0.0;
-    if(fabs(y) < 0.1) y = 0.0;
-    
-    drive.ArcadeDrive(y, x);
-  }, {&drive}));
-
-  // Configure the button bindings
-  ConfigureBindings();
-}
-
-void RobotContainer::ConfigureBindings() {
-  // Configure your trigger bindings here
-/*
-  // Schedule `ExampleCommand` when `exampleCondition` changes to `true`
-  frc2::Trigger([this] {
-    return m_subsystem.ExampleCondition();
-  }).OnTrue(ExampleCommand(&m_subsystem).ToPtr());
-
-  // Schedule `ExampleMethodCommand` when the Xbox controller's B button is
-  // pressed, cancelling on release.
-  m_driverController.B().WhileTrue(m_subsystem.ExampleMethodCommand());
+  controller.A().OnTrue(frc2::cmd::RunOnce([this]() {
+    telescope.SetTelescopePosition(0.0_m);
+  }, {&telescope}));
 }
 
 frc2::CommandPtr RobotContainer::GetAutonomousCommand() {
-  // An example command will be run in autonomous
-  return autos::ExampleAuto(&m_subsystem);*/
+  return frc2::cmd::Sequence(
+    frc2::cmd::Sequence(
+      frc2::cmd::RunOnce([this]() {
+        drive.ArcadeDrive(0.5, 0.0);
+      }, {&drive}),
+      frc2::cmd::Wait(2.0_s),
+      frc2::cmd::RunOnce([this]() {
+        drive.ArcadeDrive(0.0, 0.0);
+      }, {&drive}))
+    );
+
 }

@@ -34,11 +34,12 @@ void Robot::DisabledPeriodic() {}
  * RobotContainer} class.
  */
 void Robot::AutonomousInit() {
-  //m_autonomousCommand = m_container.GetAutonomousCommand();
+  m_autonomousCommand = m_container.GetAutonomousCommand();
 
-//  if (m_autonomousCommand) {
-//    m_autonomousCommand->Schedule();
-//  }
+ if (m_autonomousCommand.has_value()) {
+    frc2::CommandScheduler::GetInstance().Schedule(std::move(m_autonomousCommand.value()));
+
+ }
 }
 
 void Robot::AutonomousPeriodic() {}

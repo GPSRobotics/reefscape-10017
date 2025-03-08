@@ -39,6 +39,7 @@
 namespace GlobalConstants {
     // Miscellaneous robot-wide constants
     constexpr int kArbitrary = 0; // Example constant
+    constexpr int kStrafeSpeed = 1.0;
 }
 
 //Auton constants
