@@ -39,35 +39,28 @@
 
 //Strafe left 
  void DriveSubsystem::StrafeLeft() {
- m_leftSidewaysMotor.Set(-1.0);  // Full speed left 
- m_rightSidewaysMotor.Set(-1.0); 
+ m_SidewaysMotor.Set(0);  // Full speed left 
  } 
 
 
 //Strafe right
   void DriveSubsystem::StrafeRight() {
- m_leftSidewaysMotor.Set(1.0);  // Full speed right 
- m_rightSidewaysMotor.Set(1.0); 
+ m_SidewaysMotor.Set(1.0);  // Full speed right 
 }  
 
 //Stop strafing
 void DriveSubsystem::StopStrafing() {
-    m_leftSidewaysMotor.Set(0.0); 
-    m_rightSidewaysMotor.Set(0.0);
+    m_SidewaysMotor.Set(0.0); 
 }
 
 //Stop driving motors
- void DriveSubsystem::Stop() {
-    rearLeft.Set(0.0);
-    frontLeft.Set(0.0);
-    rearRight.Set(0.0);
-    frontRight.Set(0.0);
-//  m_frontLeftMotor.StopMotor(); 
-//  m_rearLeftMotor.StopMotor(); 
-//  m_frontRightMotor.StopMotor(); 
-//  m_rearRightMotor.StopMotor(); 
- m_leftSidewaysMotor.StopMotor(); 
- m_rightSidewaysMotor.StopMotor(); } 
+void DriveSubsystem::Stop() {
+  rearLeft.Set(0.0);
+  frontLeft.Set(0.0);
+  rearRight.Set(0.0);
+  frontRight.Set(0.0);
+  m_SidewaysMotor.StopMotor(); 
+} 
 
  
 

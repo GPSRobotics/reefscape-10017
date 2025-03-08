@@ -21,8 +21,7 @@ namespace DriveConstants {
     constexpr int kFrontLeftMotorPort = 1;
     constexpr int kRearRightMotorPort = 2;
     constexpr int kFrontRightMotorPort = 3;
-    constexpr int kLeftSidewaysMotorPort = 4;
-    constexpr int kRightSidewaysMotorPort = 5;
+    constexpr int kSidewaysMotorPort = 4;
     //constexpr units::meter_t kWheelDiameter = 6.0; //Diameter of wheels
     constexpr units::meters_per_second_t kMaxSpeed = 3.0_mps; // Maximum speed of the robot
 }

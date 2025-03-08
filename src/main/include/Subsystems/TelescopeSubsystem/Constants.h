@@ -15,8 +15,20 @@
 #include <frc/geometry/Pose2d.h>
 
 namespace TelescopeConstants {
-    constexpr int kLeftIntakeMotorPort = 6;
-    constexpr int kLeftIntakeMotorPort = 7;
+    constexpr int kLeftTelescopeMotorPort = 6;
+    constexpr int kRightTelescopeMotorPort = 7;
+    constexpr units::length::meter_t kStartPosition = 0.0_m;
+    constexpr units::length::meter_t kTelescopeMeterMin = kStartPosition;
+    constexpr units::length::meter_t kTelescopeMeterMax = 1.5_m;
+    constexpr double kDefaultPower = 0.0;
+    //This is a temp value and needs to be measured
+    constexpr double kTurnsPerMeter = 1.0;
+    constexpr units::length::meter_t kDeadzone = 3.0_cm;
+    enum TelescopeStates {
+        kTelescopeOff,
+        kTelescopePowerMode,
+        kTelescopePositionMode
+    };
 
 
 }
