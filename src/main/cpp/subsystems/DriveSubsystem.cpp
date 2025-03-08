@@ -6,21 +6,20 @@
  rearLeft{DriveConstants::kRearLeftMotorPort}, 
  frontLeft{DriveConstants::kFrontLeftMotorPort}, 
  rearRight{DriveConstants::kRearRightMotorPort}, 
- frontRight{DriveConstants::kFrontRightMotorPort} 
+ frontRight{DriveConstants::kFrontRightMotorPort},
+ sidewaysMotor{DriveConstants::kLeftSidewaysMotorPort}
+
  { // Initialize motor settings (e.g., inversion) 
 
-//  m_frontLeftMotor.SetInverted(false); 
-//  m_rearLeftMotor.SetInverted(false); 
-//  m_frontRightMotor.SetInverted(true); 
-//  m_rearRightMotor.SetInverted(true); 
-//  m_leftSidewaysMotor.SetInverted(false); 
-//  m_rightSidewaysMotor.SetInverted(false); 
 
 //Set left motors to inverted
  rearLeft.SetInverted(true); 
- frontLeft.SetInverted(true); 
+ frontLeft.SetInverted(true);
+ //Keep right motors as is
  rearRight.SetInverted(false); 
  frontRight.SetInverted(false); 
+ //Keep sideways motor as is
+ sidewaysMotor.SetInverted(false);
  }  
 
  void DriveSubsystem::Periodic() {
@@ -39,27 +38,28 @@
 
 //Strafe left 
  void DriveSubsystem::StrafeLeft() {
- m_SidewaysMotor.Set(0);  // Full speed left 
+ sidewaysMotor.Set(-1.0);  // Full speed left 
+ 
  } 
 
 
 //Strafe right
   void DriveSubsystem::StrafeRight() {
- m_SidewaysMotor.Set(1.0);  // Full speed right 
+ sidewaysMotor.Set(1.0);  // Full speed right 
+
 }  
 
 //Stop strafing
 void DriveSubsystem::StopStrafing() {
-    m_SidewaysMotor.Set(0.0); 
+    sidewaysMotor.StopMotor(); 
 }
 
 //Stop driving motors
-void DriveSubsystem::Stop() {
-  rearLeft.Set(0.0);
-  frontLeft.Set(0.0);
-  rearRight.Set(0.0);
-  frontRight.Set(0.0);
-  m_SidewaysMotor.StopMotor(); 
+ void DriveSubsystem::Stop() {
+    rearLeft.Set(0.0);
+    frontLeft.Set(0.0);
+    rearRight.Set(0.0);
+    frontRight.Set(0.0);
 } 
 
  

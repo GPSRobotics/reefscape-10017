@@ -10,8 +10,6 @@
 
 #include "subsystems/DriveSubsystem/Constants.h" 
 
-using namespace ctre::phoenix::motorcontrol;
-
  class DriveSubsystem : public frc2::SubsystemBase { 
 
  public: DriveSubsystem(); 
