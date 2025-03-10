@@ -1,5 +1,6 @@
 #pragma once
 
+#include "subsystems/IntakeSubsystem/IntakeSubsystem.h"
 
 
 IntakeSubsystem::IntakeSubsystem() : 
