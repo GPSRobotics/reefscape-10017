@@ -34,8 +34,8 @@ IntakeSubsystem::IntakeSubsystem() :
 
  void IntakeSubsystem::Drop() {
  if Get_Y_Pressed {
-  motor1.Set(speed)
+  motor1.Set(speed);
  } else {
-  motor1.Set(0.0)
+  motor1.Set(0.0);
  }
  }
